@@ -1,0 +1,31 @@
+@use "../variables/colors.scss" as colors;
+
+.keypad {
+  display: grid;
+  grid: repeat(5, 70px) / repeat(4, 70px);
+  gap: 20px;
+  button {
+    border-radius: 10px;
+    background-color: colors.$base;
+    font-size: x-large;
+    border: 3px solid colors.$dark;
+  }
+  &__buttons,
+  &__controls {
+    color: colors.$light;
+  }
+  .--operators {
+    color: colors.$accent;
+  }
+  button:hover {
+    background-color: colors.$dark;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 440px) {
+  .keypad {
+    grid: repeat(5, 50px) / repeat(4, 50px);
+    gap: 15px;
+  }
+}

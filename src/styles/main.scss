@@ -1,14 +1,19 @@
-@use "components/display.scss";
-@use "components/keypad.scss";
+@use "stylesheets/display.scss";
+@use "stylesheets/keypad.scss";
+@use "variables/colors.scss" as colors;
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 
 html {
   box-sizing: border-box;
-  font-size: 24px;
 }
 
 *,
 *::after,
 *::before {
+  font-family: "Creepster", system-ui;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -25,9 +30,9 @@ html {
 }
 
 .container {
-  max-width: 400px;
+  width: 400px;
   height: auto;
-  background-color: #32012f;
+  background-color: colors.$base;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,4 +40,31 @@ html {
   padding: 25px 35px;
   border-radius: 10px;
   user-select: none;
+  position: relative;
+}
+
+.hat {
+  top: -100px;
+  left: -80px;
+  transform: rotate(-30deg);
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-image: url(../assets/hat.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 440px) {
+  .container {
+    width: 300px;
+    padding: 25px;
+  }
+  .hat {
+    top: -90px;
+    left: -10px;
+    transform: rotate(-10deg);
+    height: 150px;
+    width: 150px;
+  }
 }

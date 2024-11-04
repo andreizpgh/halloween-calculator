@@ -15,13 +15,13 @@ export default function calculate(string) {
     } else {
       const operator = operators.pop();
 
-      if (operator === '*') {
+      if (operator === "*") {
         operands.push(operands.pop() * operands.pop());
       }
-      if (operator === '/') {
+      if (operator === "/") {
         operands.push(1 / (operands.pop() / operands.pop()));
       }
-      if (operator === '%') {
+      if (operator === "%") {
         const second = operands.pop();
         const first = operands.pop();
         operands.push(first % second);
@@ -32,24 +32,24 @@ export default function calculate(string) {
 
   while (operators.length) {
     const operator = operators.pop();
-    if (operator === '+') {
+    if (operator === "+") {
       operands.push(operands.pop() + operands.pop());
     }
-    if (operator === '-') {
+    if (operator === "-") {
       operands.push(-(operands.pop() - operands.pop()));
     }
-    if (operator === '*') {
+    if (operator === "*") {
       operands.push(operands.pop() * operands.pop());
     }
-    if (operator === '/') {
+    if (operator === "/") {
       operands.push(1 / (operands.pop() / operands.pop()));
     }
-    if (operator === '%') {
+    if (operator === "%") {
       const second = operands.pop();
       const first = operands.pop();
       operands.push(first % second);
     }
   }
 
-  return operands[0] ? operands[0].toString() : '0';
+  return operands[0] ? operands[0].toString() : "0";
 }
