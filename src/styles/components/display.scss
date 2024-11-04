@@ -1,0 +1,24 @@
+.display {
+  width: 100%;
+  margin: 3vh 0;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(2, minmax(40px, auto));
+  padding-bottom: 30px;
+  border-bottom: 1px #524c42 solid;
+  &__input {
+    text-align: right;
+    height: 8vh;
+    color: white;
+    line-height: 2;
+    font-size: xx-large;
+    overflow-x: scroll;
+  }
+  &__answer {
+    text-align: right;
+    color: #524c42;
+    height: 7px;
+    line-height: 3;
+    font-size: larger;
+  }
+}

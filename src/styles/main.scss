@@ -1,3 +1,6 @@
+@use "components/display.scss";
+@use "components/keypad.scss";
+
 html {
   box-sizing: border-box;
   font-size: 24px;
@@ -32,52 +35,4 @@ html {
   padding: 25px 35px;
   border-radius: 10px;
   user-select: none;
-}
-
-.display {
-  width: 100%;
-  margin: 3vh 0;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: repeat(2, minmax(40px, auto));
-  padding-bottom: 30px;
-  border-bottom: 1px #524c42 solid;
-  &__input {
-    text-align: right;
-    height: 8vh;
-    color: white;
-    line-height: 2;
-    font-size: xx-large;
-    overflow-x: scroll;
-  }
-  &__answer {
-    text-align: right;
-    color: #524c42;
-    height: 7px;
-    line-height: 3;
-    font-size: larger;
-  }
-}
-
-.keypad {
-  display: grid;
-  grid: repeat(5, 70px) / repeat(4, 70px);
-  gap: 20px;
-  button {
-    border: none;
-    border-radius: 10px;
-    background-color: #32012f;
-    font-size: x-large;
-  }
-  &__buttons,
-  &__controls {
-    color: #e2dfd0;
-  }
-  .--operators {
-    color: #f97300;
-  }
-  button:hover {
-    background-color: rgba(249, 115, 0, 0.3);
-    cursor: pointer;
-  }
 }
