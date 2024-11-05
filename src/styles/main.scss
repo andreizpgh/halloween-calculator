@@ -1,5 +1,6 @@
 @use "stylesheets/display.scss";
 @use "stylesheets/keypad.scss";
+@use "stylesheets/hat.scss";
 @use "variables/colors.scss" as colors;
 @import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 
@@ -41,30 +42,17 @@ html {
   border-radius: 10px;
   user-select: none;
   position: relative;
-}
-
-.hat {
-  top: -100px;
-  left: -80px;
-  transform: rotate(-30deg);
-  position: absolute;
-  height: 200px;
-  width: 200px;
-  background-image: url(../assets/hat.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+  .eyes {
+    display: none;
+    position: absolute;
+    top: 15px;
+    color: colors.$dark;
+  }
 }
 
 @media (max-width: 440px) {
   .container {
     width: 300px;
     padding: 25px;
-  }
-  .hat {
-    top: -90px;
-    left: -10px;
-    transform: rotate(-10deg);
-    height: 150px;
-    width: 150px;
   }
 }

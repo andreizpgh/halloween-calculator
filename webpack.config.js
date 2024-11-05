@@ -1,17 +1,17 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: ['./src/index.js', './src/styles/main.scss'],
+  entry: ["./src/index.js", "./src/styles/main.scss"],
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build'),
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "build"),
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: [".js"],
   },
   devServer: {
-    watchFiles: ['./src/*'],
+    watchFiles: ["./src/*"],
     hot: true,
   },
   module: {
@@ -19,22 +19,22 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: "babel-loader",
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      favicon: './src/assets/favicon.png',
+      template: "./src/index.html",
+      favicon: "./src/assets/favicon.png",
     }),
   ],
 };

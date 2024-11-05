@@ -1,0 +1,59 @@
+.hat {
+  top: -100px;
+  left: -80px;
+  transform: rotate(-30deg);
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-image: url(../assets/hat.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  &:hover {
+    animation: shake 1s ease-in-out;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(-30deg);
+  }
+  25% {
+    transform: rotate(-25deg);
+  }
+  50% {
+    transform: rotate(-35deg);
+  }
+  70% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+
+@media (max-width: 440px) {
+  .hat {
+    top: -90px;
+    left: -10px;
+    transform: rotate(-10deg);
+    height: 150px;
+    width: 150px;
+  }
+  @keyframes shake {
+    0% {
+      transform: rotate(-10deg);
+    }
+    25% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(-15deg);
+    }
+    70% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(-10deg);
+    }
+  }
+}

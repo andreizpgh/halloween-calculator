@@ -6,6 +6,8 @@
   margin: 3vh 0;
   background-color: colors.$light;
   padding: 20px;
+  overflow: hidden;
+  position: relative;
   &__input {
     height: 55px;
     width: 100%;
@@ -23,5 +25,29 @@
     color: colors.$dark;
     line-height: 3;
     font-size: larger;
+  }
+  .upper-teeth,
+  .lower-teeth {
+    position: absolute;
+    left: 0;
+    width: 250px;
+    height: 100px;
+    transition: transform 0.1s ease-in-out;
+    filter: invert(7%) sepia(99%) saturate(3397%) hue-rotate(339deg)
+      brightness(103%) contrast(97%);
+  }
+  .upper-teeth {
+    background-image: url(../assets/upperTeeth.svg);
+    top: -90px;
+  }
+  .lower-teeth {
+    background-image: url(../assets/lowerTeeth.svg);
+    bottom: -100px;
+  }
+  &:hover .upper-teeth {
+    transform: translateY(+90px);
+  }
+  &:hover .lower-teeth {
+    transform: translateY(-100px);
   }
 }

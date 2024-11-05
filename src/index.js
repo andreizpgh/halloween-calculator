@@ -1,6 +1,8 @@
 /* global document */
 import calculate from "./utils/calculate";
 
+const display = document.querySelector(".display");
+const eyes = document.querySelector(".eyes");
 const displayInput = document.querySelector(".display__input");
 const displayAnswer = document.querySelector(".display__answer");
 const buttons = document.querySelectorAll(".keypad__buttons");
@@ -39,4 +41,12 @@ controls.forEach((btn) => {
       displayAnswer.innerHTML = input;
     }
   });
+});
+
+display.addEventListener("mouseover", () => {
+  eyes.style.display = "block";
+});
+
+display.addEventListener("mouseout", () => {
+  eyes.style.display = "none";
 });
