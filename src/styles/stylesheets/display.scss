@@ -30,7 +30,7 @@
   .lower-teeth {
     position: absolute;
     left: 0;
-    width: 250px;
+    width: 330px;
     height: 100px;
     transition: transform 0.1s ease-in-out;
     filter: invert(7%) sepia(99%) saturate(3397%) hue-rotate(339deg)
@@ -49,5 +49,12 @@
   }
   &:hover .lower-teeth {
     transform: translateY(-100px);
+  }
+}
+
+@media (max-width: 440px) {
+  .upper-teeth,
+  .lower-teeth {
+    width: 250px;
   }
 }
