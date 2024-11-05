@@ -1,55 +1,33 @@
-export default function calculate(string) {
-  const input = string.match(/[\d.]+|[+\-//*%]/g) || [];
-  const operands = [];
-  const operators = [];
+import toRPN from "./toRPN";
+
+export default function calculate(exp) {
+  const input = toRPN(exp);
+  const stack = [];
 
   for (let i = 0; i < input.length; i += 1) {
-    const element = input[i];
-
-    if (/[\d.]+/.test(element)) {
-      operands.push(+element);
-    } else if (/[*/%]/.test(element)) {
-      operators.push(element);
-    } else if (/[+-]/.test(operators.at(-1)) || !operators.length) {
-      operators.push(element);
-    } else {
-      const operator = operators.pop();
-
-      if (operator === "*") {
-        operands.push(operands.pop() * operands.pop());
+    switch (true) {
+      case input[i] === "+":
+        stack.push(stack.pop() + stack.pop());
+        break;
+      case input[i] === "-":
+        stack.push(-(stack.pop() - stack.pop()));
+        break;
+      case input[i] === "*":
+        stack.push(stack.pop() * stack.pop());
+        break;
+      case input[i] === "/":
+        stack.push(1 / (stack.pop() / stack.pop()));
+        break;
+      case input[i] === "%": {
+        const second = stack.pop();
+        const first = stack.pop();
+        stack.push(first % second);
+        break;
       }
-      if (operator === "/") {
-        operands.push(1 / (operands.pop() / operands.pop()));
-      }
-      if (operator === "%") {
-        const second = operands.pop();
-        const first = operands.pop();
-        operands.push(first % second);
-      }
-      operators.push(element);
+      default:
+        stack.push(+input[i]);
     }
   }
 
-  while (operators.length) {
-    const operator = operators.pop();
-    if (operator === "+") {
-      operands.push(operands.pop() + operands.pop());
-    }
-    if (operator === "-") {
-      operands.push(-(operands.pop() - operands.pop()));
-    }
-    if (operator === "*") {
-      operands.push(operands.pop() * operands.pop());
-    }
-    if (operator === "/") {
-      operands.push(1 / (operands.pop() / operands.pop()));
-    }
-    if (operator === "%") {
-      const second = operands.pop();
-      const first = operands.pop();
-      operands.push(first % second);
-    }
-  }
-
-  return operands[0] ? operands[0].toString() : "0";
+  return stack[0] ? stack[0].toString() : "0";
 }
