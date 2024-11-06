@@ -17,6 +17,11 @@
     font-size: 1.5rem;
     overflow-y: hidden;
     overflow-x: scroll;
+    text-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  &__input::-webkit-scrollbar {
+    display: none;
   }
   &__answer {
     height: 55px;
@@ -45,10 +50,28 @@
     bottom: -100px;
   }
   &:hover .upper-teeth {
-    transform: translateY(+90px);
+    animation: upperBite 0.7s ease-in-out;
   }
   &:hover .lower-teeth {
+    animation: lowerBite 0.7s ease-in-out;
+  }
+}
+
+@keyframes upperBite {
+  50% {
+    transform: translateY(+90px);
+  }
+  100% {
+    transform: translateY(-90px);
+  }
+}
+
+@keyframes lowerBite {
+  50% {
     transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(+100px);
   }
 }
 

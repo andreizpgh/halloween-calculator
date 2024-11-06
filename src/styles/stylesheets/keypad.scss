@@ -9,6 +9,10 @@
     background-color: colors.$base;
     font-size: x-large;
     border: 3px solid colors.$dark;
+    &:hover {
+      background-color: colors.$dark;
+      cursor: pointer;
+    }
   }
   &__buttons,
   &__controls {
@@ -17,15 +21,17 @@
   .--operators {
     color: colors.$accent;
   }
-  button:hover {
-    background-color: colors.$dark;
-    cursor: pointer;
-  }
 }
 
 @media (max-width: 440px) {
   .keypad {
     grid: repeat(5, 50px) / repeat(4, 50px);
     gap: 15px;
+    button {
+      -webkit-tap-highlight-color: transparent;
+      &:hover {
+        background-color: colors.$base;
+      }
+    }
   }
 }

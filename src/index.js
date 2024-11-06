@@ -12,9 +12,16 @@ let input = "";
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    input += btn.value;
-    displayInput.innerHTML = input;
-    displayInput.scrollLeft = displayInput.scrollWidth;
+    if (
+      btn.classList.contains("--operands")
+      || (btn.classList.contains("--operators")
+        && (/\d/.test(input.slice(-1)) || !input.length))
+      || (btn.value === "-" && /\d[+\-*/%]/.test(input.slice(-2)))
+    ) {
+      input += btn.value;
+      displayInput.innerHTML = input;
+      displayInput.scrollLeft = displayInput.scrollWidth;
+    }
     if (btn.classList.contains("--operands")) {
       displayAnswer.innerHTML = calculate(input);
     }
@@ -43,10 +50,7 @@ controls.forEach((btn) => {
   });
 });
 
-display.addEventListener("mouseover", () => {
-  eyes.style.display = "block";
-});
-
-display.addEventListener("mouseout", () => {
-  eyes.style.display = "none";
-});
+["mouseover", "mouseout"].forEach((type) => display.addEventListener(type, () => {
+  if (type === "mouseover") eyes.style.display = "block";
+  if (type === "mouseout") eyes.style.display = "none";
+}));
