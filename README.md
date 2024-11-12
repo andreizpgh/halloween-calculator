@@ -1,4 +1,5 @@
 ## Halloween-themed calculator
+<img src="https://github.com/user-attachments/assets/63e3c020-8b44-4150-999a-fc9d426725e5" width="345px" />
 
 A calculator built using vanilla JavaScript and SCSS,
 with the help of the webpack bundler.
@@ -17,7 +18,7 @@ Be careful, it bites!
 git clone git@github.com:andreizpgh/halloween-calculator.git
 
 # cd into the repo folder
-cd path/to/repo/folder
+cd path/to/the/folder
 
 # install dependencies
 npm i
@@ -25,7 +26,7 @@ npm i
 # start local server in dev mode
 npm run start
 
-# build the project into build folder
+# build the project
 mkdir build
 npm run build
 ```
